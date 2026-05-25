@@ -17,6 +17,11 @@
   --color-peach-deep: #e85c1f;
   --color-peach-dim: #7a3a1c;
 
+  --color-green: #2fa05a;
+  --color-green-soft: #6fc890;
+  --color-green-deep: #1F8B47;
+  --color-green-dim: #1f4a30;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -74,3 +79,42 @@ body {
 .animate-fade-up {
   animation: fade-up 0.8s ease-out backwards;
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes flow-x {
+  0% { transform: translateX(0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(52px); opacity: 0; }
+}
+@keyframes flow-y {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(28px); opacity: 0; }
+}
+@keyframes supervise-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(47 160 90 / 0); }
+  50% { box-shadow: 0 0 0 6px rgb(47 160 90 / 0.16); }
+}
+@keyframes node-breathe {
+  0%, 100% { border-color: var(--color-border); }
+  50% { border-color: var(--color-peach-dim); }
+}
+@keyframes node-breathe-green {
+  0%, 100% { border-color: var(--color-border); }
+  50% { border-color: var(--color-green-dim); }
+}
+
+.flow-x { animation: flow-x 2.2s linear infinite; }
+.flow-y { animation: flow-y 2.2s linear infinite; }
+.supervise-pulse { animation: supervise-pulse 2.8s ease-in-out infinite; }
+.node-breathe { animation: node-breathe 4s ease-in-out infinite; }
+.node-breathe-green { animation: node-breathe-green 4s ease-in-out infinite; }
