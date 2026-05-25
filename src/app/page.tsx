@@ -20,27 +20,27 @@ type PortfolioEntry = {
 const PORTFOLIO: PortfolioEntry[] = [
   {
     client: "KFC",
-    sector: "HR & Payroll",
+    sector: "💼 HR & Payroll",
     did: "Spreadsheet-driven HR and salary calculations replaced with a system. What used to take days now runs on demand.",
   },
   {
     client: "SRLine",
-    sector: "Logistics",
+    sector: "🚚 Logistics",
     did: "Freight operations moved out of Excel and into a single webapp. Bookings, routing, billing in one place.",
   },
   {
     client: "Geoskills",
-    sector: "Education",
+    sector: "📚 Education",
     did: "Learning management system built from the ground up. Courses, students, instructors, assessment.",
   },
   {
     client: "GIPA",
-    sector: "Operations",
+    sector: "🏛️ Operations",
     did: "Asset and inventory management for an academic institution.",
   },
   {
     client: "Eurocredit",
-    sector: "Financial services",
+    sector: "🏦 Financial services",
     did: "Loan management with banking integration. Loan officers stopped switching tabs to enter the same data twice.",
   },
   {
@@ -62,6 +62,7 @@ export default function Home() {
     <main className="relative isolate flex-1">
       <Header />
       <Hero />
+      <HowItWorks />
       <Services />
       <Training />
       <Components />
@@ -105,7 +106,7 @@ function Hero() {
       <div className="hero-glow" aria-hidden />
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-border bg-bg-elevated/60 px-3 py-1 text-xs text-fg-muted backdrop-blur-sm">
-          <span className="size-1.5 rounded-full bg-peach" />
+          <span>💡</span>
           AI made code cheap. The bottleneck moved.
         </div>
         <h1
@@ -149,12 +150,15 @@ function Hero() {
           style={{ animationDelay: "0.3s" }}
         >
           {[
-            { k: "NO DEV HIRES", v: "for the entire rebuild" },
-            { k: "BUSINESS PEOPLE", v: "build with Claude + AI" },
-            { k: "WE SUPERVISE", v: "own the architecture" },
+            { emoji: "🚫", k: "NO DEV HIRES", v: "for the entire rebuild" },
+            { emoji: "👥", k: "BUSINESS PEOPLE", v: "build with Claude + AI" },
+            { emoji: "🎯", k: "WE SUPERVISE", v: "own the architecture" },
           ].map((it) => (
             <div key={it.k}>
-              <div className="font-mono text-xs uppercase tracking-wider text-peach">{it.k}</div>
+              <div className="font-mono text-xs uppercase tracking-wider text-peach">
+                <span className="mr-1">{it.emoji}</span>
+                {it.k}
+              </div>
               <div className="mt-1 text-sm text-fg-muted">{it.v}</div>
             </div>
           ))}
@@ -164,12 +168,82 @@ function Hero() {
   );
 }
 
+function HowItWorks() {
+  const nodes = [
+    {
+      emoji: "🧠",
+      title: "Your domain expert",
+      sub: "knows what the business actually needs",
+    },
+    {
+      emoji: "🤖",
+      title: "Claude + AI",
+      sub: "writes the code, prompted by your team",
+    },
+    {
+      emoji: "📦",
+      title: "Working software",
+      sub: "owned by your team, day one",
+    },
+  ];
+  return (
+    <section className="relative px-6 py-16 md:py-24 border-y border-border bg-bg-elevated/30">
+      <div className="mx-auto max-w-5xl">
+        <div className="text-center">
+          <div className="font-mono text-xs uppercase tracking-widest text-peach">
+            🔄 The model
+          </div>
+          <h2 className="mt-3 text-2xl md:text-3xl font-medium text-fg">
+            How the work actually flows
+          </h2>
+        </div>
+
+        <div className="mt-12 flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-2">
+          {nodes.map((n, i) => (
+            <div key={n.title} className="contents">
+              <div className="flex-1 rounded-2xl border border-border bg-bg p-5 text-center">
+                <div className="text-3xl">{n.emoji}</div>
+                <div className="mt-2 font-medium text-fg">{n.title}</div>
+                <div className="mt-1 text-xs text-fg-muted">{n.sub}</div>
+              </div>
+              {i < nodes.length - 1 && <FlowArrow />}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 relative">
+          <div className="absolute inset-x-8 md:inset-x-16 top-1/2 h-px bg-peach/25" aria-hidden />
+          <div className="relative flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-peach/40 bg-bg px-4 py-2 text-xs font-mono uppercase tracking-wider text-peach">
+              <span>👀</span>
+              AppifySheets supervises end-to-end
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FlowArrow() {
+  return (
+    <div className="flex items-center justify-center text-peach shrink-0 md:px-1" aria-hidden>
+      <svg className="hidden md:block" width="28" height="20" viewBox="0 0 28 20" fill="none">
+        <path d="M2 10h22m0 0l-6-6m6 6l-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <svg className="md:hidden" width="20" height="28" viewBox="0 0 20 28" fill="none">
+        <path d="M10 2v22m0 0l-6-6m6 6l6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </div>
+  );
+}
+
 function Services() {
   return (
     <section id="services" className="relative px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Services"
+          eyebrow="🛠️ Services"
           title="What we actually do"
           subtitle="Two ways in. The pattern is the same either way: your business people drive it, AI writes the code, we supervise."
         />
@@ -207,14 +281,17 @@ function Services() {
 function Training() {
   const skills = [
     {
+      emoji: "💬",
       t: "Prompting",
       d: "How to ask Claude for what your business actually needs, in language that gets the right code back.",
     },
     {
+      emoji: "👁️",
       t: "Reading the output",
       d: "Knowing what good code looks like without writing it yourself. Spotting when the AI made something up.",
     },
     {
+      emoji: "🔁",
       t: "Iterating safely",
       d: "When to push back, when to accept, and when to call us instead.",
     },
@@ -223,7 +300,7 @@ function Training() {
     <section id="training" className="relative px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Training"
+          eyebrow="🎓 Training"
           title="Your team learns while building"
           subtitle="Your business people can&apos;t write code with Claude if they don&apos;t know how to work with Claude. We train them on the AI workflow as part of the engagement. They learn on the actual project, not in a classroom. Reading the new stack in a course never works. Reading their own code does."
         />
@@ -234,6 +311,7 @@ function Training() {
               className="card-glow group rounded-2xl border border-border bg-bg-elevated/60 p-6 transition-all"
             >
               <div className="font-mono text-xs uppercase tracking-wider text-peach">
+                <span className="mr-1.5">{s.emoji}</span>
                 {s.t}
               </div>
               <p className="mt-3 text-sm text-fg-muted leading-relaxed">{s.d}</p>
@@ -259,7 +337,7 @@ function Components() {
     <section id="components" className="relative px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="What you get"
+          eyebrow="🧩 What you get"
           title="Not built from scratch"
           subtitle="The apps don&apos;t reinvent the UI. They use the same off-the-shelf component library behind a lot of the enterprise software you already use. Your business team assembles these, working with Claude and other AI tools to do the wiring. Nobody draws screens from scratch, and nobody hires developers."
         />
@@ -329,7 +407,7 @@ function Process() {
     <section id="process" className="relative px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="How we work"
+          eyebrow="⚙️ How we work"
           title="Oversight, not outsourcing"
           subtitle="We&apos;re not the team that disappears with the source code."
         />
@@ -355,7 +433,7 @@ function CaseStudy() {
     <section id="case-study" className="relative px-6 py-24 md:py-32 bg-bg-elevated/40">
       <div className="mx-auto max-w-5xl">
         <SectionHeading
-          eyebrow="Featured case study"
+          eyebrow="⭐ Featured case study"
           title="GEPHA"
           subtitle="A pharmaceutical company that wanted to own its software instead of renting it."
         />
@@ -401,7 +479,7 @@ function Portfolio() {
     <section id="portfolio" className="relative px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Portfolio"
+          eyebrow="💼 Portfolio"
           title="Recent work"
           subtitle="Different industries, same model. Their team builds, we supervise, AI helps."
         />
@@ -488,7 +566,7 @@ function Footer() {
           <span>AppifySheets</span>
         </div>
         <div className="text-xs text-fg-subtle">
-          We work in <span className="text-fg-muted">English</span> ·{" "}
+          🌍 We work in <span className="text-fg-muted">English</span> ·{" "}
           <span className="text-fg-muted">ქართული</span> ·{" "}
           <span className="text-fg-muted">Русский</span>
         </div>
