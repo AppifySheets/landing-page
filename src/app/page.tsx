@@ -4,7 +4,7 @@ const CONTACT_EMAIL = "hello@appifysheets.com";
 const MAILTO = `mailto:${CONTACT_EMAIL}?subject=AppifySheets%20demo%20request`;
 const COMPONENTS_URL = "https://demos.devexpress.com/blazor/";
 
-const WHATSAPP_NUMBER = "995000000000";
+const WHATSAPP_NUMBER = "995555668688";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   "Hi! I'd like to chat about AppifySheets.",
 )}`;
