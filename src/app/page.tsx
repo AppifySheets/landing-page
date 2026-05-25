@@ -9,8 +9,10 @@ const MAILTO = `mailto:${CONTACT_EMAIL}?subject=AppifySheets%20demo%20request`;
 const COMPONENTS_URL = "https://demos.devexpress.com/blazor/";
 
 const WHATSAPP_NUMBER = "995555668688";
+const WHATSAPP_MESSAGE =
+  "Hi! I'm confused and unsure about many things, especially related to software in my company. It seems I am missing out on AI and on digital transformation, whatever that means. Please help me. Help me..";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  "Hi! I'd like to chat about AppifySheets.",
+  WHATSAPP_MESSAGE,
 )}`;
 
 type PortfolioEntry = {
@@ -495,9 +497,9 @@ function CaseStudy() {
         <div className="mt-12 rounded-3xl border border-border bg-bg p-8 md:p-14">
           <div className="flex flex-col md:flex-row gap-8 md:gap-14">
             <div className="md:w-1/3">
-              <div className="text-xs font-semibold uppercase tracking-[0.15em] text-green">Outcome</div>
+              <div className="text-xs font-semibold uppercase tracking-[0.15em] text-green">Today</div>
               <p className="mt-3 text-2xl md:text-3xl font-medium text-fg leading-tight">
-                Their team <span className="text-green">builds without us now.</span>
+                Their team <span className="text-green">extends.</span> We&apos;re still in the room.
               </p>
             </div>
             <div className="md:w-2/3 space-y-6 text-fg-muted leading-relaxed">
@@ -508,19 +510,11 @@ function CaseStudy() {
                 to bring the business logic into the new system, one module at a time.
               </p>
               <p>
-                By the end, GEPHA&apos;s own employees were extending the system without
-                calling us. New screens, new workflows, new reports, none of it routed
-                through us. That was the whole point.
+                Still in progress today. GEPHA&apos;s employees now extend the system
+                themselves. New screens, new workflows, new reports, they don&apos;t wait
+                on us for those. We&apos;re still in the room for the architectural calls
+                and the harder problems.
               </p>
-              <div className="pt-4 border-t border-border">
-                <a
-                  href={MAILTO}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-peach hover:text-peach-soft transition-colors"
-                >
-                  Talk to someone on the GEPHA team
-                  <Arrow />
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -648,12 +642,9 @@ function Footer() {
           We work in <span className="text-fg-muted">English</span> ·{" "}
           <span className="text-fg-muted">ქართული</span>
         </div>
-        <div className="flex items-center gap-6">
-          <a href={MAILTO} className="hover:text-fg transition-colors">
-            {CONTACT_EMAIL}
-          </a>
-          <span className="font-mono text-xs">© {new Date().getFullYear()}</span>
-        </div>
+        <a href={MAILTO} className="hover:text-fg transition-colors">
+          {CONTACT_EMAIL}
+        </a>
       </div>
     </footer>
   );
