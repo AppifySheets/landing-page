@@ -63,6 +63,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Services />
+      <Training />
       <Components />
       <Process />
       <CaseStudy />
@@ -83,7 +84,7 @@ function Header() {
       </Link>
       <nav className="hidden md:flex items-center gap-8 text-sm text-fg-muted">
         <a href="#services" className="hover:text-fg transition-colors">Services</a>
-        <a href="#components" className="hover:text-fg transition-colors">Components</a>
+        <a href="#training" className="hover:text-fg transition-colors">Training</a>
         <a href="#case-study" className="hover:text-fg transition-colors">Case study</a>
         <a href="#portfolio" className="hover:text-fg transition-colors">Portfolio</a>
       </nav>
@@ -203,6 +204,47 @@ function Services() {
   );
 }
 
+function Training() {
+  const skills = [
+    {
+      t: "Prompting",
+      d: "How to ask Claude for what your business actually needs, in language that gets the right code back.",
+    },
+    {
+      t: "Reading the output",
+      d: "Knowing what good code looks like without writing it yourself. Spotting when the AI made something up.",
+    },
+    {
+      t: "Iterating safely",
+      d: "When to push back, when to accept, and when to call us instead.",
+    },
+  ];
+  return (
+    <section id="training" className="relative px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          eyebrow="Training"
+          title="Your team learns while building"
+          subtitle="Your business people can&apos;t write code with Claude if they don&apos;t know how to work with Claude. We train them on the AI workflow as part of the engagement. They learn on the actual project, not in a classroom. Reading the new stack in a course never works. Reading their own code does."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          {skills.map((s) => (
+            <div
+              key={s.t}
+              className="card-glow group rounded-2xl border border-border bg-bg-elevated/60 p-6 transition-all"
+            >
+              <div className="font-mono text-xs uppercase tracking-wider text-peach">
+                {s.t}
+              </div>
+              <p className="mt-3 text-sm text-fg-muted leading-relaxed">{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Components() {
   const items = [
     { icon: <IconGrid />, name: "Tables that scale", d: "Sort, filter, group, export. The grids your team needs but Excel can&apos;t deliver at company size." },
@@ -214,7 +256,7 @@ function Components() {
   ];
 
   return (
-    <section id="components" className="relative px-6 py-24 md:py-32 bg-bg-elevated/40">
+    <section id="components" className="relative px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="What you get"
