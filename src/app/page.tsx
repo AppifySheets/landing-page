@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const CONTACT_EMAIL = "hello@appifysheets.com";
@@ -663,18 +664,14 @@ function ServiceCard({
 
 function Logo() {
   return (
-    <span className="relative inline-flex size-8" aria-label="AppifySheets">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full">
-        <g transform="translate(45 30) rotate(-25)">
-          <path d="M -32 0 Q 0 -14 32 0 Q 0 14 -32 0 Z" fill="#D77A1F" />
-          <path d="M -36 0 L 28 0" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-        </g>
-        <g transform="translate(55 65) rotate(60)">
-          <path d="M -32 0 Q 0 -14 32 0 Q 0 14 -32 0 Z" fill="#1F8B47" />
-          <path d="M -36 0 L 28 0" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-        </g>
-      </svg>
-    </span>
+    <Image
+      src="/logo.png"
+      alt="AppifySheets"
+      width={32}
+      height={32}
+      className="size-8"
+      priority
+    />
   );
 }
 
