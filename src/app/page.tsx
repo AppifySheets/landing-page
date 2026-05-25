@@ -122,11 +122,11 @@ function Hero() {
           className="animate-fade-up mx-auto mt-6 max-w-2xl text-base sm:text-lg text-fg-muted leading-relaxed"
           style={{ animationDelay: "0.12s" }}
         >
-          Code got cheap. The hard part is knowing what the code should do, and the only
-          people who really know are already in your company. Your operations lead. Your
-          accountant. Your warehouse manager. They write the code themselves, with Claude
-          and other AI tools as their pair programmer. We supervise. That&apos;s the whole
-          team.
+          Code got cheap. Knowing what to build is the hard part. Two people already on
+          your staff solve that. Your domain experts (operations lead, accountant,
+          warehouse manager) describe what the system has to do. The person who already
+          knows how your software runs, usually the administrator, writes the new code
+          with Claude. We supervise. That&apos;s the whole team.
         </p>
         <div
           className="animate-fade-up mt-10 flex flex-col sm:flex-row items-center justify-center gap-3"
@@ -152,7 +152,7 @@ function Hero() {
         >
           {[
             { emoji: "🚫", k: "NO DEV HIRES", v: "for the entire rebuild" },
-            { emoji: "👥", k: "BUSINESS PEOPLE", v: "build with Claude + AI" },
+            { emoji: "📝", k: "YOUR ADMIN + AI", v: "writes the new code" },
             { emoji: "🎯", k: "WE SUPERVISE", v: "own the architecture" },
           ].map((it) => (
             <div key={it.k}>
@@ -173,13 +173,13 @@ function HowItWorks() {
   const nodes = [
     {
       emoji: "🧠",
-      title: "Your domain expert",
-      sub: "knows what the business actually needs",
+      title: "Your domain experts",
+      sub: "describe what the system has to do",
     },
     {
-      emoji: "🤖",
-      title: "Claude + AI",
-      sub: "writes the code, prompted by your team",
+      emoji: "📝",
+      title: "Your software admin + Claude",
+      sub: "write the new code on their behalf",
     },
     {
       emoji: "📦",
@@ -246,7 +246,7 @@ function Services() {
         <SectionHeading
           eyebrow="🛠️ Services"
           title="What we actually do"
-          subtitle="Two ways in. The pattern is the same either way: your business people drive it, AI writes the code, we supervise."
+          subtitle="Two ways in. The pattern is the same either way: your domain experts describe what they need, your software administrator (or PM, or BA) writes the new code with Claude, we supervise."
         />
         <div className="mt-16 grid gap-5 lg:grid-cols-5">
           <ServiceCard
@@ -254,10 +254,10 @@ function Services() {
             icon={<IconMigrate />}
             title="Replace your legacy line-of-business app"
             highlight
-            body="The system your business actually runs on. Built when people who&apos;ve since left were here. Held together by tribal knowledge and a single consultant who answers the phone twice a year. We rebuild it without hiring programmers. Your operations team writes the code themselves, using Claude and other AI tools. We own the architecture and catch the traps."
+            body="The system your business actually runs on. Built when people who&apos;ve since left were here. Held together by tribal knowledge and a single consultant who answers the phone twice a year. We rebuild it without hiring programmers. Your domain experts describe the workflows they actually use. The person who already knows how the software runs, your administrator, writes the new code with Claude. We own the architecture and catch the traps."
             bullets={[
-              "No developer hires. Your business team writes the code with Claude.",
-              "They know the business. AI does the typing. We make the calls.",
+              "No developer hires for the entire rebuild",
+              "Domain experts describe what they need; your admin writes the code with Claude",
               "We&apos;re accountable for architecture and integrity",
               "When we leave, the team running it is the team that built it",
             ]}
@@ -266,11 +266,11 @@ function Services() {
             className="lg:col-span-2"
             icon={<IconSheet />}
             title="Replace business-critical spreadsheets"
-            body="The workflow running on five linked spreadsheets and one person who &lsquo;just knows how it works.&rsquo; We rebuild it as a real application, without hiring a developer. That same person writes the code themselves, with Claude and other AI tools. The workflow stops breaking when someone deletes a row, and the knowledge stops walking out the door with employees."
+            body="The workflow running on five linked spreadsheets and one person who &lsquo;just knows how it works.&rsquo; We rebuild it as a real application, without hiring a developer. The expert describes what the spreadsheets are doing. A power user on your team (your spreadsheet admin, or whoever everyone else asks) writes the new code with Claude. The workflow stops breaking when someone deletes a row, and the knowledge stops walking out the door with employees."
             bullets={[
               "Built around the process you already have",
               "Audit log and permissions from day one",
-              "The person who knows the workflow writes the code for it",
+              "Your spreadsheet admin writes the code; the expert describes the workflow",
             ]}
           />
         </div>
@@ -302,8 +302,8 @@ function Training() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="🎓 Training"
-          title="Your team learns while building"
-          subtitle="Your business people can&apos;t write code with Claude if they don&apos;t know how to work with Claude. We train them on the AI workflow as part of the engagement. They learn on the actual project, not in a classroom. Reading the new stack in a course never works. Reading their own code does."
+          title="Your admin learns while building"
+          subtitle="The person driving Claude (your administrator, or whoever currently keeps the existing software running) needs to know how. We train them on the AI workflow as part of the engagement. They learn on the actual project, not in a classroom. Reading the new stack in a course never works. Reading their own code does."
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
           {skills.map((s) => (
@@ -394,8 +394,8 @@ function Process() {
     },
     {
       n: "03",
-      t: "Business people write the code, with AI as their pair programmer",
-      d: "You don&apos;t hire programmers. The people who actually use the system, your operations leads, your accountants, your warehouse manager, write the code themselves, with Claude and other AI tools doing the typing. We make the architectural calls and catch the traps. By the end, the people who run your business also run the software.",
+      t: "Your admin writes. Experts inform. We supervise.",
+      d: "You don&apos;t hire programmers. The people who actually use the system, your operations leads, your accountants, your warehouse manager, describe what they need. The person who already knows how the existing software runs (your administrator, or whoever everyone calls when the system acts up) writes the new code with Claude. We make the architectural calls and catch the traps. By the end, the people who run your business also run the software.",
     },
     {
       n: "04",
