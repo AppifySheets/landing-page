@@ -63,11 +63,10 @@ const PORTFOLIO: PortfolioEntry[] = [
     draft: true,
   },
   {
-    client: "Emergency Services of Georgia",
-    sector: "Public sector",
+    client: "ESCUAC Georgia",
+    sector: "Emergency services",
     sectorIcon: <IconLandmark />,
-    did: "TODO: one-line description of what we built for Emergency Services.",
-    draft: true,
+    did: "A dispatch engine that routes patients to hospitals by capacity and ambulance distance. Each hospital gets its own portal to manage status. Fewer miles driven, and hospital management stopped complaining about lopsided loads.",
   },
 ];
 
@@ -83,6 +82,7 @@ export default function Home() {
       <Components />
       <Process />
       <CaseStudy />
+      <Testimonials />
       <Portfolio />
       <CTA />
       <Footer />
@@ -93,17 +93,19 @@ export default function Home() {
 
 function Header() {
   return (
-    <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
-      <Link href="/" className="flex items-center gap-2 group">
-        <Logo />
-        <span className="font-medium tracking-tight text-fg">AppifySheets</span>
-      </Link>
-      <nav className="hidden md:flex items-center gap-8 text-sm text-fg-muted">
-        <a href="#services" className="hover:text-fg transition-colors">Services</a>
-        <a href="#training" className="hover:text-fg transition-colors">Training</a>
-        <a href="#case-study" className="hover:text-fg transition-colors">Case study</a>
-        <a href="#portfolio" className="hover:text-fg transition-colors">Portfolio</a>
-      </nav>
+    <header className="sticky top-0 z-40 border-b border-border bg-bg/70 backdrop-blur-md">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
+        <Link href="/" className="flex items-center gap-2 group">
+          <Logo />
+          <span className="font-medium tracking-tight text-fg">AppifySheets</span>
+        </Link>
+        <nav className="hidden md:flex items-center gap-8 text-sm text-fg-muted">
+          <a href="#services" className="hover:text-fg transition-colors">Services</a>
+          <a href="#training" className="hover:text-fg transition-colors">Training</a>
+          <a href="#case-study" className="hover:text-fg transition-colors">Case study</a>
+          <a href="#portfolio" className="hover:text-fg transition-colors">Portfolio</a>
+        </nav>
+      </div>
     </header>
   );
 }
@@ -309,10 +311,10 @@ function Services() {
             icon={<IconMigrate />}
             title="Replace your legacy line-of-business app"
             highlight
-            body="The system your business actually runs on. Built when people who&apos;ve since left were here. Held together by tribal knowledge and a single consultant who answers the phone twice a year. We rebuild it without hiring programmers. Your domain experts describe the workflows they actually use. The person who already knows how the software runs, your administrator, writes the new code with Claude. We own the architecture and catch the traps."
+            body="The system your business actually runs on. Built when people who&apos;ve since left were here. Held together by tribal knowledge and a single consultant who answers the phone twice a year. We rebuild it without hiring programmers. Your domain experts describe the workflows they actually use. One person on your team, or a small group, writes the new code with Claude. We hand them everything we know about the workflow and stay on call while they learn. We own the architecture and catch the traps."
             bullets={[
               "No developer hires for the entire rebuild",
-              "Domain experts describe what they need; your admin writes the code with Claude",
+              "One person or a small group runs Claude. We hand them everything we know.",
               "We&apos;re accountable for architecture and integrity",
               "When we leave, the team running it is the team that built it",
             ]}
@@ -342,9 +344,9 @@ function Training() {
       d: "How to ask Claude for what your business actually needs, in language that gets the right code back.",
     },
     {
-      icon: <IconEye />,
-      t: "Reading the output",
-      d: "Knowing what good code looks like without writing it yourself. Spotting when the AI made something up.",
+      icon: <IconLightbulb />,
+      t: "Claude adapts",
+      d: "We don't only train your team. Claude gets project context, your conventions, your patterns loaded in too. The longer the engagement, the better its output fits your business.",
     },
     {
       icon: <IconLoop />,
@@ -357,8 +359,8 @@ function Training() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow={<><IconGraduationCap /> Training</>}
-          title="Your admin learns while building"
-          subtitle="The person driving Claude (your administrator, or whoever currently keeps the existing software running) needs to know how. We train them on the AI workflow as part of the engagement. They learn on the actual project, not in a classroom. Reading the new stack in a course never works. Reading their own code does."
+          title="Knowledge transfer, ongoing support"
+          subtitle="One person or a small group on your side runs Claude. We hand them everything we know about the workflow: the patterns, the gotchas, the moves that aren&apos;t in any docs. They learn on the actual project, not in a classroom. We&apos;re on call while they do."
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
           {skills.map((s) => (
@@ -395,7 +397,7 @@ function Components() {
         <SectionHeading
           eyebrow={<><IconPuzzle /> What you get</>}
           title="Not built from scratch"
-          subtitle="The apps don&apos;t reinvent the UI. They use the same off-the-shelf component library behind a lot of the enterprise software you already use. Your business team assembles these, working with Claude and other AI tools to do the wiring. Nobody draws screens from scratch, and nobody hires developers."
+          subtitle="Your new app is built from ready-made pieces: tables, dashboards, reports, forms. The same pieces inside a lot of enterprise software you already use. Your team picks and arranges them. No custom design work needed."
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((c) => (
@@ -450,7 +452,7 @@ function Process() {
     {
       n: "03",
       t: "Your admin writes. Experts inform. We supervise.",
-      d: "You don&apos;t hire programmers. The people who actually use the system, your operations leads, your accountants, your warehouse manager, describe what they need. The person who already knows how the existing software runs (your administrator, or whoever everyone calls when the system acts up) writes the new code with Claude. We make the architectural calls and catch the traps. By the end, the people who run your business also run the software.",
+      d: "You don&apos;t hire programmers. The people who actually use the system, your operations leads, your accountants, your warehouse manager, describe what they need. One person on your team, or a small group, writes the new code with Claude. We hand them everything we know about the workflow and stay on call while they learn. We make the architectural calls and catch the traps. By the end, the people who run your business also run the software.",
     },
     {
       n: "04",
@@ -492,7 +494,7 @@ function CaseStudy() {
         <SectionHeading
           eyebrow={<><IconStar /> Featured case study</>}
           title="GEPHA"
-          subtitle="A pharmaceutical company that wanted to own its software instead of renting it."
+          subtitle="A pharmaceutical company modernizing its software, without hiring developers."
         />
         <div className="mt-12 rounded-3xl border border-border bg-bg p-8 md:p-14">
           <div className="flex flex-col md:flex-row gap-8 md:gap-14">
@@ -523,6 +525,37 @@ function CaseStudy() {
   );
 }
 
+function Testimonials() {
+  const videos = ["S2kNOso5Emk", "05J0i_Hatj4"];
+  return (
+    <section id="testimonials" className="relative px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-4xl">
+        <SectionHeading
+          eyebrow={<><IconMessageCircle /> Testimonials</>}
+          title="Clients in their own words"
+          subtitle="The people on the other side of these projects."
+        />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          {videos.map((id) => (
+            <div
+              key={id}
+              className="aspect-square overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-xl shadow-black/40"
+            >
+              <iframe
+                src={`https://www.youtube.com/embed/${id}`}
+                title={`Client testimonial ${id}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Portfolio() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollByCard = (dir: -1 | 1) => {
@@ -535,7 +568,7 @@ function Portfolio() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow={<><IconBriefcase /> Portfolio</>}
-          title="Recent work"
+          title="What we&apos;ve built"
           subtitle="Different industries, same model. Their team builds, we supervise, AI helps."
         />
         <div className="mt-16 relative">
