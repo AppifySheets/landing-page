@@ -29,7 +29,7 @@ const PORTFOLIO: PortfolioEntry[] = [
     did: "Freight operations moved out of Excel and into a single webapp. Bookings, routing, billing in one place.",
   },
   {
-    client: "EMIS",
+    client: "Geoskills",
     sector: "Education",
     did: "Learning management system built from the ground up. Courses, students, instructors, assessment.",
   },
